@@ -65,7 +65,7 @@ public class RealEstate {
 
         User newUser = new User(userName, password, phoneNumber, aMediator.equals("1"));
         addUserToArray(newUser);
-        System.out.println(Arrays.toString(this.users));
+
     }
 
     private Object[] addToArray(Object[] oldArray, Object toAdd) {
