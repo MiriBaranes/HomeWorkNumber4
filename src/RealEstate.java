@@ -229,10 +229,16 @@ public class RealEstate {
             System.out.println("No property posted.");
         } else {
             printAllUserProperties(user);
-            removeIndex = getIntInput("Enter wanted property to remove by number: ", x -> (1 <= x && x <= size)) - 1;
-            Property propertyToRemove = properties[removeIndex];
-            this.properties = filterArrayByValue(this.properties, false, property -> property.equals(propertyToRemove));
-            System.out.println("The property has been removed.");
+               removeIndex = getIntInput("Enter wanted property to remove by number if you dont wont to remove" +
+                    "press -999: ", x -> (1 <= x && x <= size) || x==UNFILTERED_SELECTION) - 1;
+            if (removeIndex!=UNFILTERED_SELECTION-1) {
+                Property propertyToRemove = properties[removeIndex];
+                this.properties = filterArrayByValue(this.properties, false, property -> property.equals(propertyToRemove));
+                System.out.println("The property has been removed.");
+            }
+            else {
+                System.out.println("At your request nothing was deleted\n");
+            }
         }
     }
 
